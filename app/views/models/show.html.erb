@@ -1,0 +1,81 @@
+
+<div class="container" id="containerb">
+
+<p id="notice"><%= notice %></p>
+<div> <%= image_tag @model.avatar.url(:square) %> </div>
+<br>
+<p>
+  <strong>First Name:</strong>
+  <%= @model.firstname %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @model.lastname %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @model.age %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @model.city %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @model.heightfeet %> Feet 
+  <%= @model.heightinches %> Inches
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @model.size %>
+</p>
+
+<p>
+  <strong>Shoe size:</strong>
+  <%= @model.shoesize %>
+</p>
+
+<p>
+  <strong>Hair color:</strong>
+  <%= @model.haircolor %>
+</p>
+
+<p>
+  <strong>Eyes:</strong>
+  <%= @model.eyes %>
+</p>
+
+<p>
+  <strong>Bust:</strong>
+  <%= @model.bust %>
+</p>
+
+<p>
+  <strong>Waist:</strong>
+  <%= @model.waist %>
+</p>
+
+<p>
+  <strong>Hips:</strong>
+  <%= @model.hips %>
+</p>
+
+<% if admin_signed_in? %>
+<p>
+  <strong>Phone number:</strong>
+  <%= @model.phonenumber %>
+</p>
+
+
+<div>
+<%= link_to 'Edit', edit_model_path(@model), class: "btn btn-sm
+ btn-warning" %>
+ <% end %>
+<%= link_to 'Back', models_path, class: "btn btn-default btn-sm linktext" %> </div><br>
+<div><%= link_to 'Download PDF', model_path(@model, :format => "pdf"), :target => '_blank', class: "btn btn-success btn-sm" %><small> PDF file opens in a new window</small></div>
+
+</div>

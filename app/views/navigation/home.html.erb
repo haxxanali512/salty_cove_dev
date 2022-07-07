@@ -1,0 +1,93 @@
+
+<div class="container-fluid">
+
+
+<div id="carousel1" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+
+        <% @featuredprojects.each_with_index do |x, index| %>
+        <% if index == 0 %> 
+          <li data-target="#carousel1" data-slide-to="<%=index%>" class="active"></li>
+        <% else %>
+          <li data-target="#carousel1" data-slide-to="<%=index%>"></li>
+        <% end %>
+      <% end %>
+          <% @featuredprojects.each_with_index do |x, index| %>
+                <% y = x.photos.first %>
+                 </ol>
+                    <% if index == 0 %> 
+                      <div class="carousel-inner center" role="listbox">
+                      <div class="item active" id="carouselpictureframe">
+                    <% else %>
+                      <div class="item" id="carouselpictureframe">
+                    <% end %>
+                <%= image_tag(y.asset.url(:carousel), class: "carouselpicture") %>
+              <div class="carousel-caption" id="carouselcaption">
+              
+                  <p class="carouseltext"> <span><%= x.headline %></span> </p>
+                
+
+         <%= link_to "View Set", project_photo_path(x, x.photos), class: "btn btn-default btn-sm viewset mb" %>
+      </div>
+
+      </div>
+
+  <% end %>
+
+  </div> <!-- Carousel-Inner  -->
+    
+    <!-- Carousel Navigation -->
+    <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel1" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a> 
+
+    </div> <!-- Carousel1c -->
+
+    <br>
+
+    <div class="container" id="recentbody">
+
+      <div class="spacerforhomepage">
+
+        <p class="attn"> Recent Work </p>
+
+      </div>
+
+<div class="previewwork">
+
+
+
+
+<div class="row">
+
+  <% @z.each do |a| %>
+
+      <div class="col-xs-6 col-sm-3">
+            <% b = a.photos[0] %>
+    <% if b.present? %>
+    <div title="<%= a.client.name %>">
+         <%= link_to(image_tag(b.asset.url(:preview)), project_photo_path(a, a.photos),  class: "recent") %> </div>
+       </div>
+        <% end %>
+          <% end %>
+     </div>
+
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+$('.carousel1').carousel()
+</script>
+
+</body>

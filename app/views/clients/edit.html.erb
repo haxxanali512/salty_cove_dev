@@ -1,0 +1,43 @@
+
+<div class="container" id="containerb">
+
+<% provide(:title, 'Edit Client Details') %>
+
+<p class="attn">Edit client information</p>
+
+<br>
+
+    <%= form_for(@client, multipart: true) do |f| %>
+    <%= render 'shared/error_messages' %>
+
+   <div> <%= f.label :name %> </div>
+   <div> <%= f.text_field :name, autofocus: true  %> </div></br>
+
+      <div> <%= f.label :email, class: 'label1'  %> </div>
+      <div> <%= f.email_field :email %> </div></br>
+
+      <div> <%= f.label :nameofcontact, 'Name of Contact', class: 'label1'  %> </div>
+      <div> <%= f.text_field :nameofcontact %> </div></br>
+
+      <div> <%= f.label :phonenumber, 'Phone Number', class: 'label1'  %> </div>
+      <div> <%= f.text_field :phonenumber %> </div></br>
+
+      <div> <%= f.label :mailingaddress, 'Mailing Address', class: 'label1'  %> </div>
+      <div> <%= f.text_field :mailingaddress %> </div></br>
+
+      <div> <%= f.label :password, class: 'label1'  %> </div>
+      <div> <%= f.password_field :password %> </div></br>
+
+      <div> <%= f.label :password_confirmation, "Confirmation", class: 'label1'  %> </div>
+      <div> <%= f.password_field :password_confirmation %> </div></br>
+
+      <div class="field">
+        <%= f.label :logo, class: 'label1'  %>
+        <%= f.file_field :logo %>
+      </div></br>
+
+     <div> <%= f.submit "Save changes", class: "btn btn-success btn-sm" %> </div>
+    <% end %>
+  </div>
+</div>
+</div>

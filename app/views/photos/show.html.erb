@@ -1,0 +1,127 @@
+
+
+<div class="container" id="containerb">
+
+<p class="attn"> Project Photos </p>
+
+<hr>
+<br>
+<div class="row">
+		<div class="col-md-3">
+
+			<div class="logoborder"> <%= image_tag(@project.client.logo.url(:thumb)) %></div>
+			<div class="projectdetails">
+				<div> Client: <%= @project.client.name %> </div>
+				<div> Location: <%= @project.location %> </div>
+				<div> Category: <%= @project.ctype %> </div>
+			</div>
+			<br>
+			<div><small><em> Please click on the thumbnails to view larger versions of the images </em></small></div>
+
+
+			<div class="whr"></div>
+
+			<div> <%= link_to 'Back', :back, class: "btn btn-default btn-sm linktext" %> <%= link_to "View other Projects", work_path, class: "btn btn-default btn-sm" %> </div>
+</div>
+
+<div class="col-md-9">
+
+<div>
+	<% @project.photos.each do |p| %>
+
+		<%= link_to (p.asset.url(:featured)), :class => 'fancybox', :rel => 'group' do %>
+  			<%= image_tag(p.asset.url(:square)) %>
+		<% end %>
+	<% end %>
+
+	<br>
+
+
+</div>
+</br>
+
+
+
+</div>
+
+</br>
+
+</div>
+
+
+<div class="row">
+	<div class="col-md-12">
+<% if admin_signed_in? %>
+
+<hr>
+
+</br>
+
+<small><em> This section is only visible to Administrative users of the NTP web app </em </small>
+</br></br>
+
+		<div> Number of Photos: <%=@project.photos.count %><div>
+		<div> Photo ID's: <%=@project.photos.map { |x| x.id} %><div>
+		<div> Project ID: <%=@project.id %><div>
+		<div> Photo Description: <%=@project.description %><div>
+
+
+
+		</br>
+
+	
+
+<%= form_tag destroy_multiple_project_photos_path, method: :delete do %>
+<ul class="consolebox">
+<% @project.photos.each do |p| %>
+<li>
+<%= check_box_tag 'destruction[]', p.id %>
+<%= image_tag(p.asset.url(:square)) %> 
+</li>
+<% end %>
+</ul>
+</br>
+<%= submit_tag "Delete selected", class: "btn btn-danger btn-sm" %>
+<% end %>
+
+
+</div>
+</div>
+
+
+
+</br>
+
+<div>
+	<%= link_to client_project_path(@client, @project), class: "btn btn-default btn-sm linktext" do %> 
+<span class="glyphicon glyphicon-arrow-left"></span> Back to Project Overview
+<% end %>
+
+	<%= link_to client_path(@client), class: "btn btn-default btn-sm linktext" do %> 
+<span class="glyphicon glyphicon-arrow-left"></span> Back to Client Profile page
+<% end %>
+
+<% end %>
+
+
+</div>
+
+<script>
+$(document).ready(function() {
+
+$(".fancybox")
+    .attr('rel', 'gallery')
+    .fancybox({
+        beforeShow: function () {
+            /* Disable right click */
+            $.fancybox.wrap.bind("contextmenu", function (e) {
+                    return false; 
+            });
+        }
+    });
+
+});
+
+</script>
+
+

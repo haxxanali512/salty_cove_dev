@@ -1,0 +1,54 @@
+# == Schema Information
+#
+# Table name: models
+#
+#  id                  :integer          not null, primary key
+#  firstname           :string(255)
+#  lastname            :string(255)
+#  heightfeet          :integer
+#  size                :string(255)
+#  shoesize            :float
+#  haircolor           :string(255)
+#  eyes                :string(255)
+#  bust                :float
+#  waist               :float
+#  hips                :float
+#  phonenumber         :string(255)
+#  created_at          :datetime
+#  updated_at          :datetime
+#  avatar_file_name    :string(255)
+#  avatar_content_type :string(255)
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
+#  heightinches        :decimal(, )
+#  city                :string(255)
+#  age                 :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstname: MyString
+  lastname: MyString
+  height: 1
+  size: 1
+  shoesize: 1
+  haircolor: MyString
+  eyes: MyString
+  bust: 1
+  waist: 1
+  hips: 1
+  phonenumber: 1
+
+two:
+  firstname: MyString
+  lastname: MyString
+  height: 1
+  size: 1
+  shoesize: 1
+  haircolor: MyString
+  eyes: MyString
+  bust: 1
+  waist: 1
+  hips: 1
+  phonenumber: 1

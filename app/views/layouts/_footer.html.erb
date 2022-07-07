@@ -1,0 +1,46 @@
+<div class="container" id="footerr">
+<div class="row" id="lowest">
+	<br>
+	<div class="col-md-4">
+		<p class="footerheader"> Extranet </p>
+		<ul>
+             <% if client_signed_in? %>
+      		  <li><%= "Signed in as"%> <%= current_client.email %> | <%= link_to "Logout", logout_path, method: :delete %></li>
+       			 <% else %>
+        		<li><%= link_to "Client login", login_path %></li>
+        	 <% end %>
+			<li><%= link_to "Models", preview_path %></li>
+			<li><%= link_to "Artists & Talent", '#' %></li>
+		</ul>
+	</div>
+	<div class="col-md-4">
+		<p class="footerheader"> Social </p>
+		<ul>
+		<li><%= link_to "Facebook", "https://www.facebook.com/nadirtoosy", :target => "_blank", :class => "fc-webicon facebook" %></li>
+		<li><%= link_to "Twitter", "https://twitter.com/nadirtoosy", :target => "_blank", :class => "fc-webicon twitter" %></li>
+		</ul>
+	</div>
+
+	<div class="col-md-4">
+		<p class="footerheader"> Contact </p>
+		<ul>
+			<li>0345-3067433</li>
+			<li>info@nadirtoosy.com</li>
+			<li>E/24, 4th Gizri St, Phase IV, Karachi</li>
+		</ul>
+	</div>
+
+</div>
+</section>
+<br>
+<hr>
+
+<div class=row>
+	<div class="col-md-6">
+		<small> Copyright NTP 2014 - <%=Time.now.year%> </small> 
+		
+	</div>
+	<div class="col-md-6" id="catalyst">
+		 	<span> <small>  alpha - V.0.2.1 </small> | <small> <%= link_to "Catalyst", "http://www.catalystio.com", :target => "_blank" %> </small> </span>
+		</div>
+</div>
